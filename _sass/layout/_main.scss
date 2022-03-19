@@ -55,7 +55,7 @@
       }
 
       @include breakpoint(large) {
-        @include padding((_size(padding) * 3), (_size(padding) * 2));
+        @include padding((_size(padding) * 2), (_size(padding) * 2));
       }
 
       @include breakpoint(small) {
@@ -69,7 +69,7 @@
             }
 
             > h1, h2 {
-              font-size: 1.5rem;
+              font-size: 2rem;
               line-height: 1.2;
               margin: 0 0 (_size(element-margin) * 0.75) 0;
             }
