@@ -64,12 +64,12 @@
         header {
           &.major {
             > .date {
-              margin-top: -1rem;
+              margin-top: -0.5rem;
               margin-bottom: _size(element-margin);
             }
 
             > h1, h2 {
-              font-size: 2.5rem;
+              font-size: 1.5rem;
               line-height: 1.2;
               margin: 0 0 (_size(element-margin) * 0.75) 0;
             }
