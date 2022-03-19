@@ -15,14 +15,12 @@ permalink: /about/
 
 <div style="font-family:Oxygen,monospace;">
 <div>
-<p>My name is Jakub Konstanty and I'm self-taught machine learning engineer.
+<p>My name is Jakub Konstanty and I'm self-taught machine learning engineer.<br>
+During my time at University I was first fascinated with CAD and 3D modeling. There was always something to tune, fix and enhance. The process of designing was very appealing to me. Then, during my masters I discovered the world of neural networks and computer vision. It switched my focus from irl to ml design. </p>  
+<br>
+<p>My blog posts are mainly geared towards detail my experiences and development with <code>Machine Learning</code> and <code>Computer Vision</code> as Video Object Segmentation was my thesis. I will also explore some areas of <code>Data Science</code> as it and ml are complementary fields. Most of my post will have tutorial or explanatory character. However, I might post some photos from my climbing trips at some point in the future. </p>
 
-I also play flexQ with Batonowi and Le Monke.
-
-<!-- or on <a href="https://twitter.com/{{site.twitter_username}}" class="icon fa-twitter" rel="nofollow"><span class="label">Twitter</span></a>.  -->
-On this page you can find some information about me and my blog. My blog posts ate mainly geared towards detail my experiences and development with <code>Machine Learning</code> and <code>Computer Vision</code> as Video Object Segmentation was my thesis. However, I might post some photos from my climbing trips at some point in the future. </p>
-
-Reach out via email (giastantino@gmail.com). You can find me on <a href="https://github.com/{{site.github_username}}" class="icon fa-github" rel="nofollow"><span class="label">GitHub</span></a>
+Reach me out via email: giastantino@gmail.com.<br> You can find me on <a href="https://github.com/{{site.github_username}}" class="icon fa-github" rel="nofollow"><span class="label">GitHub</span></a>
 <hr>
 
 <div class="custom-details-card">
