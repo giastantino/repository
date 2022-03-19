@@ -714,9 +714,9 @@ body.is-loading #intro:not(.hidden) + #header + #nav { -moz-transform: translate
 
 #main > .post.featured { text-align: center; }
 
-@media screen and (max-width: 1280px) { #main > .post { padding: 6rem 4rem 4rem 4rem ; } }
+@media screen and (max-width: 1280px) { #main > .post { padding: 4rem 4rem 2rem 4rem ; } }
 
-@media screen and (max-width: 736px) { #main > .post { padding: 4rem 2rem 2rem 2rem ; } #main > .post header.major > .date { margin-top: -0.5rem; margin-bottom: 2rem; } #main > .post header.major > h1, #main > .post header.major h2 { font-size: 1.5rem; line-height: 1.2; margin: 0 0 1.5rem 0; } }
+@media screen and (max-width: 736px) { #main > .post { padding: 4rem 2rem 2rem 2rem ; } #main > .post header.major > .date { margin-top: -0.5rem; margin-bottom: 2rem; } #main > .post header.major > h1, #main > .post header.major h2 { font-size: 2rem; line-height: 1.2; margin: 0 0 1.5rem 0; } }
 
 #main > .posts { display: -moz-flex; display: -webkit-flex; display: -ms-flex; display: flex; -moz-flex-wrap: wrap; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -moz-align-items: stretch; -webkit-align-items: stretch; -ms-align-items: stretch; align-items: stretch; text-align: center; width: 100%; padding: 0; }
 
