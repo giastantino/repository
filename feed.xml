@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://giacostantino.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://giacostantino.com/" rel="alternate" type="text/html" /><updated>2022-03-20T10:56:42-05:00</updated><id>https://giacostantino.com/feed.xml</id><title type="html">Giaco Stantino</title><subtitle>I blog about ML and DS</subtitle><entry><title type="html">Object Recognition</title><link href="https://giacostantino.com/object-recognition/" rel="alternate" type="text/html" title="Object Recognition" /><published>2022-03-07T00:00:00-06:00</published><updated>2022-03-07T00:00:00-06:00</updated><id>https://giacostantino.com/object-recognition</id><content type="html" xml:base="https://giacostantino.com/object-recognition/">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://giacostantino.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://giacostantino.com/" rel="alternate" type="text/html" /><updated>2022-03-20T13:16:54-05:00</updated><id>https://giacostantino.com/feed.xml</id><title type="html">Giaco Stantino</title><subtitle>I blog about ML and DS</subtitle><entry><title type="html">POCODES: POssible COllision DEtection System</title><link href="https://giacostantino.com/blog/pocodes" rel="alternate" type="text/html" title="POCODES: POssible COllision DEtection System" /><published>2022-03-14T00:00:00-05:00</published><updated>2022-03-14T00:00:00-05:00</updated><id>https://giacostantino.com/blog/pocodes</id><content type="html" xml:base="https://giacostantino.com/blog/pocodes">&lt;h1 id=&quot;intro&quot;&gt;&lt;center&gt;Intro&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;“Contrary to traditional beliefs, high-level reasoning requires
+low computing power, but low-level perception and abilities
+motor skills require enormous computing power.”&lt;br /&gt;~Moravec paradox&lt;/p&gt;
+
+&lt;p&gt;Indeed, computers have learned chess against people earlier than they have learned to recognize items in photos or in the vicinity of the car. The following post is based on the project and report I done for my univeristy project. I had to design aglorithm and model that would spot the possibile collisions in the frame of the video. Fun fact: this is the project that convinced me that ML is what I’d like consider for my master’s thesis and maybe for coming years.&lt;/p&gt;
+
+&lt;h1 id=&quot;prelude&quot;&gt;&lt;center&gt;Prelude&lt;/center&gt;&lt;/h1&gt;
+
+&lt;p&gt;The growing number of vehicles on the road has visible consequences, including congested streets in densely populated cities and an increasing number of car accidents from year to year. A 2019 World Health Organization (WHO) report shows that 1.25 million people die in road accidents each year and millions more are injured, with nearly 49% of pedestrians and cyclists. Moreover, it is estimated that road accidents will be the fifth leading cause of death in the world by 2030 if preventive measures are not taken.&lt;/p&gt;
+
+&lt;p&gt;At the same time, there is an increase in the use of drones and the development of related industries. By 2025, the size of the drone services market is expected to grow to $ 63.6 billion. In addition, in 2021, deliveries of consumer drones are expected to reach 29 million. At this point, attention should be paid to the presence of vision systems in most models available on the market.&lt;/p&gt;
+
+&lt;p&gt;The use of artificial intelligence and computer vision for the image obtained from the drone’s camera to detect potential collisions may significantly accelerate the process of providing information about the accident. The time it takes for victims to wait for help could be shortened. Such a system should be fully automatic and operate with high reliability.&lt;/p&gt;
+
+&lt;h1 id=&quot;object-detection&quot;&gt;Object Detection&lt;/h1&gt;
+
+&lt;p&gt;Object detection is the task of detecting instances of objects of a certain class within an image. The state-of-the-art methods can be categorized into two main types: one-stage methods and two stage-methods. One-stage methods prioritize inference speed, and example models include YOLO and SSD. Two-stage methods prioritize detection accuracy, and example models include Faster R-CNN and Mask R-CNN.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://giacostantino.com/images/ipynb/colision_objectdetection.png&quot; width=&quot;500&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;Algorithms produce a list of object categories present in the image along with an axis-aligned &lt;em&gt;bounding box&lt;/em&gt; indicating the position and scale of every instance of each object category. In fact, there are two types of &lt;em&gt;boxes&lt;/em&gt; that you should know:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;The bounding box&lt;/strong&gt; is used to describe the spatial location of an object, as shown in the above photo&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The ground-truth box&lt;/strong&gt; is used on training data to mark the object&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;model-used---ssd&quot;&gt;Model used - SSD&lt;/h1&gt;
+
+&lt;p&gt;In 2015, Wei Liu et al. published the work &lt;a href=&quot;https://arxiv.org/abs/1512.02325&quot;&gt;“SSD: Single Shot MultiBox Detector”&lt;/a&gt;. This algorithm uses boxes of different sizes to recognize objects of different types in any image. Thanks to the use of this technique, it is possible to recognize large and small objects in the same image.&lt;/p&gt;
+
+&lt;p&gt;SSD has two components: a  &lt;strong&gt;backbone&lt;/strong&gt;  model and  &lt;strong&gt;SSD head&lt;/strong&gt;.  &lt;em&gt;Backbone&lt;/em&gt;  model usually is a pre-trained image classification network as a feature extractor. This is typically a network like ResNet trained on ImageNet from which the final fully connected classification layer has been removed. We are thus left with a deep neural network that is able to extract semantic meaning from the input image while preserving the spatial structure of the image albeit at a lower resolution.  The &lt;em&gt;SSD head&lt;/em&gt;  is just one or more convolutional layers added to this backbone and the outputs are interpreted as the bounding boxes and classes of objects in the spatial location of the final layers activations. In the figure below, the first few layers (white boxes) are the backbone, the last few layers (blue boxes) represent the SSD head.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://giacostantino.com/images/ipynb/colision_ssdmodel.png&quot; width=&quot;700&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;The algorithm creates a mesh and checks for each location whether the object is potentially there.  Then it selects the correct proportions of the default boundaries for the searched object. In the SSD model, this stage is accomplished by the standard VGG-16 convolutional network model.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://giacostantino.com/images/ipynb/colision_ssdboxes.png&quot; width=&quot;700&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;The figure above from the left shows GT (ground-truth) boxes where two animal objects (dog and cat) were found, the center shows an 8 x 8 map and finding a smaller element, and the right shows the location coordinates (loc) and values ​​representing the trust of the found object on the basis of the compared features (conf).&lt;/p&gt;
+
+&lt;h1 id=&quot;collision-detection-algorithm&quot;&gt;Collision detection algorithm&lt;/h1&gt;
+
+&lt;p&gt;The SSD model is used to predict bounding boxes of objects in the frame. The risk of a potential accident is detected by checking the &lt;strong&gt;IoU&lt;/strong&gt; (Intersection over Union) factor for each pair of objects visible in the frame. This concept is sufficient for frames with a limited number of objects, but might not work in places with extremely high density of objects, such as passersby and cars in Times Square, New York&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;IoU&lt;/strong&gt; factor is used to determine the degree to which two objects overlap, namely their predicted boundaries. It is calculated by dividing the intersection of the surfaces bounded by the boundaries by the sum of both surfaces, as shown in the following illustration.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://giacostantino.com/images/ipynb/colision_iou.png&quot; width=&quot;700&quot; /&gt;&lt;/center&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+
+&lt;p&gt;The SSD300 neural network model was used to detectthe objects. The database was recordings from Stanford University with annotations already prepared. An example frame below.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://giacostantino.com/images/ipynb/colision_annotations.png&quot; width=&quot;700&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;The analysis was carried out for single frames of films available in the above-mentioned database.  624 frames were selected pseudo-randomly for the training set and 132 for the validation set. Such a selection was aimed at diversifying the set, because the two consecutive frames of a film with a frequency of 30 fps do not differ much from each other.&lt;/p&gt;
+
+&lt;h2 id=&quot;predictions&quot;&gt;Predictions&lt;/h2&gt;
+
+&lt;p&gt;Trained model allows to recognize objects of various classes:
+Biker, Skateboarder and Car. Examples of frames with prediction plotted from two locations are presented below.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://giacostantino.com/images/ipynb/colision_predictions1.png&quot; width=&quot;700&quot; /&gt;&lt;/center&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://giacostantino.com/images/ipynb/colision_predictions2.png&quot; width=&quot;700&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;AP (Average Precision) was used to assess the quality, which is an indicator showing the effectiveness of predictions in percent, i.e. the ratio of correct predictions to all predictions made. The average precision value for both scenes was 73.51%, which is not a sufficient enough for the stable and reliable  collision detection system.&lt;/p&gt;
+
+&lt;h2 id=&quot;collisions&quot;&gt;Collisions&lt;/h2&gt;
+
+&lt;p&gt;The risk of a potential accident was detected by checking the IoU factor for each pair of objects predicted in the frame. For the purposes of the project, it was decided that the IoU factor must be greater than 0.3 to detect collision.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://giacostantino.com/images/ipynb/colision_colisions.png&quot; width=&quot;700&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;We can see  possible collisions in the picture above. The next step in improving considered detection system could be to analyze whether the drop in speed is large enough between suspected objects to confirm the collision.&lt;/p&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+
+&lt;p&gt;The project discusses a collision detection system based on computer vision solutions using artificial neural networks from recent years. A system was obtained that recognizes objects of various classes of road users and checks the locations of potential collisions. The average effectiveness of the recognition of objects was at the level of 75.51% which is not a sufficient value. Finally, a solution for detecting collisions of detected objects using the IoU coefficient was proposed.&lt;/p&gt;
+
+&lt;p&gt;This sums up the blog post. As you can see, the project was not an unbelievable success… in fact it was not successful at all. Well, at least when it comes to the results. Despite that, it managed to ignite my curiosity. I can’t wait to post the last part of this saga, which is my master’s thesis: video object segmentation.&lt;/p&gt;
+
+&lt;p&gt;P.S. Sorry for that clickbait title, POCODES :laugh:&lt;/p&gt;</content><author><name>Giaco Stantino</name></author><category term="computer vision" /><category term="machine learning" /><summary type="html">Intro</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://giacostantino.com/images/ipynb/colision_predictions1.png" /><media:content medium="image" url="https://giacostantino.com/images/ipynb/colision_predictions1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Object Recognition</title><link href="https://giacostantino.com/object-recognition/" rel="alternate" type="text/html" title="Object Recognition" /><published>2022-03-07T00:00:00-06:00</published><updated>2022-03-07T00:00:00-06:00</updated><id>https://giacostantino.com/object-recognition</id><content type="html" xml:base="https://giacostantino.com/object-recognition/">&lt;hr /&gt;
 &lt;p&gt;title: “Intro to object recognition and convnets”
 description: “Part [1/3] of my Road to Masters story”
 layout: post
@@ -11,8 +95,9 @@ author: Giaco Stantino
 categories: [computer vision, machine learning]
 hide: false
 search_exclude: true
-permalink: /blog/object-recognition
-—&lt;/p&gt;
+permalink: /blog/object-recognition&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h1 id=&quot;intro&quot;&gt;&lt;center&gt;Intro&lt;/center&gt;&lt;/h1&gt;
 
@@ -107,7 +192,7 @@ Neural Networks are algorithms using an artificial neurons. They compute output 
 
 &lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
 
-&lt;p&gt;The neural network model is a powerfull tool and is best suited for tasks where traditional machine learning algorithms underperform, such as computer vision and speech recognition. In the post we discussed the core ideas behind the object recognition, yet there is a lot lef unsaid: neuron activation function, loss function, optimization method… Some of them I am going to discuss in upcoming post considering object detction for colision signaling. Stay tuned.&lt;/p&gt;</content><author><name></name></author><summary type="html">title: “Intro to object recognition and convnets” description: “Part [1/3] of my Road to Masters story” layout: post toc: true branch: master badges: false image: images/ipynb/rtm_object_recognition.png comments: false author: Giaco Stantino categories: [computer vision, machine learning] hide: false search_exclude: true permalink: /blog/object-recognition —</summary></entry><entry><title type="html">Folio 01: Clustering</title><link href="https://giacostantino.com/blog/folio-clustering" rel="alternate" type="text/html" title="Folio 01: Clustering" /><published>2022-02-28T00:00:00-06:00</published><updated>2022-02-28T00:00:00-06:00</updated><id>https://giacostantino.com/blog/folio1-clustering</id><content type="html" xml:base="https://giacostantino.com/blog/folio-clustering">&lt;!--
+&lt;p&gt;The neural network model is a powerfull tool and is best suited for tasks where traditional machine learning algorithms underperform, such as computer vision and speech recognition. In the post we discussed the core ideas behind the object recognition, yet there is a lot lef unsaid: neuron activation function, loss function, optimization method… Some of them I am going to discuss in upcoming post considering object detction for colision signaling. Stay tuned.&lt;/p&gt;</content><author><name></name></author><summary type="html">title: “Intro to object recognition and convnets” description: “Part [1/3] of my Road to Masters story” layout: post toc: true branch: master badges: false image: images/ipynb/rtm_object_recognition.png comments: false author: Giaco Stantino categories: [computer vision, machine learning] hide: false search_exclude: true permalink: /blog/object-recognition</summary></entry><entry><title type="html">Folio 01: Clustering</title><link href="https://giacostantino.com/blog/folio-clustering" rel="alternate" type="text/html" title="Folio 01: Clustering" /><published>2022-02-28T00:00:00-06:00</published><updated>2022-02-28T00:00:00-06:00</updated><id>https://giacostantino.com/blog/folio1-clustering</id><content type="html" xml:base="https://giacostantino.com/blog/folio-clustering">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
