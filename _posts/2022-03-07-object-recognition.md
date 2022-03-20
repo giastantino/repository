@@ -1,6 +1,4 @@
-
 ---
-
 title: "Intro to object recognition and convnets"
 description: "Part [1/3] of my Road to Masters story"
 layout: post
@@ -14,10 +12,7 @@ categories: [computer vision, machine learning]
 hide: false
 search_exclude: true
 permalink: /blog/object-recognition
-
 ---
-
-
 ## <center>Intro</center>
 
 Object recognition is a computer vision technique for identifying objects in images or videos. Object recognition is a key technology behind driverless cars, enabling them to recognize a stop sign or to distinguish a pedestrian from a lamppost. It is also useful in a variety of applications such as disease identification in bioimaging, industrial inspection, and robotic vision.
