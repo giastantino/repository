@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://giacostantino.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://giacostantino.com/" rel="alternate" type="text/html" /><updated>2022-03-20T13:50:03-05:00</updated><id>https://giacostantino.com/feed.xml</id><title type="html">Giaco Stantino</title><subtitle>I blog about ML and DS</subtitle><entry><title type="html">Pocodes</title><link href="https://giacostantino.com/pocodes/" rel="alternate" type="text/html" title="Pocodes" /><published>2022-03-14T00:00:00-05:00</published><updated>2022-03-14T00:00:00-05:00</updated><id>https://giacostantino.com/pocodes</id><content type="html" xml:base="https://giacostantino.com/pocodes/">&lt;hr /&gt;
-
-&lt;p&gt;title: “POCODES: POssible COllision DEtection System”
-description: “Part [2/3] of my Road to Masters story”
-layout: post
-toc: true
-branch: master
-badges: false
-image: images/ipynb/colision_predictions1.png
-comments: false
-author: Giaco Stantino
-categories: [computer vision, machine learning]
-hide: false
-search_exclude: true
-permalink: /blog/pocodes&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-intro-&quot;&gt;&lt;center&gt; Intro &lt;/center&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://giacostantino.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://giacostantino.com/" rel="alternate" type="text/html" /><updated>2022-03-20T14:04:35-05:00</updated><id>https://giacostantino.com/feed.xml</id><title type="html">Giaco Stantino</title><subtitle>I blog about ML and DS</subtitle><entry><title type="html">POCODES: POssible COllision DEtection System</title><link href="https://giacostantino.com/blog/pocodes" rel="alternate" type="text/html" title="POCODES: POssible COllision DEtection System" /><published>2022-03-14T00:00:00-05:00</published><updated>2022-03-14T00:00:00-05:00</updated><id>https://giacostantino.com/blog/pocodes</id><content type="html" xml:base="https://giacostantino.com/blog/pocodes">&lt;h2 id=&quot;-intro-&quot;&gt;&lt;center&gt; Intro &lt;/center&gt;&lt;/h2&gt;
 
 &lt;p&gt;“Contrary to traditional beliefs, high-level reasoning requires
 low computing power, but low-level perception and abilities
@@ -100,25 +82,7 @@ Biker, Skateboarder and Car. Examples of frames with prediction plotted from two
 
 &lt;p&gt;This sums up the blog post. As you can see, the project was not an unbelievable success… in fact it was not successful at all. Well, at least when it comes to the results. Despite that, it managed to ignite my curiosity. I can’t wait to post the last part of this saga, which is my master’s thesis: video object segmentation.&lt;/p&gt;
 
-&lt;p&gt;P.S. Sorry for that clickbait title, POCODES :laugh:&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Object Recognition</title><link href="https://giacostantino.com/object-recognition/" rel="alternate" type="text/html" title="Object Recognition" /><published>2022-03-07T00:00:00-06:00</published><updated>2022-03-07T00:00:00-06:00</updated><id>https://giacostantino.com/object-recognition</id><content type="html" xml:base="https://giacostantino.com/object-recognition/">&lt;hr /&gt;
-
-&lt;p&gt;title: “Intro to object recognition and convnets”
-description: “Part [1/3] of my Road to Masters story”
-layout: post
-toc: true
-branch: master
-badges: false
-image: images/ipynb/rtm_object_recognition.png
-comments: false
-author: Giaco Stantino
-categories: [computer vision, machine learning]
-hide: false
-search_exclude: true
-permalink: /blog/object-recognition&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;intro&quot;&gt;&lt;center&gt;Intro&lt;/center&gt;&lt;/h2&gt;
+&lt;p&gt;P.S. Sorry for that clickbait title, POCODES :laugh:&lt;/p&gt;</content><author><name>Giaco Stantino</name></author><category term="computer vision" /><category term="machine learning" /><summary type="html">Intro</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://giacostantino.com/images/ipynb/colision_predictions1.png" /><media:content medium="image" url="https://giacostantino.com/images/ipynb/colision_predictions1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Intro to object recognition and convnets</title><link href="https://giacostantino.com/blog/object-recognition" rel="alternate" type="text/html" title="Intro to object recognition and convnets" /><published>2022-03-07T00:00:00-06:00</published><updated>2022-03-07T00:00:00-06:00</updated><id>https://giacostantino.com/blog/object-recognition</id><content type="html" xml:base="https://giacostantino.com/blog/object-recognition">&lt;h2 id=&quot;intro&quot;&gt;&lt;center&gt;Intro&lt;/center&gt;&lt;/h2&gt;
 
 &lt;p&gt;Object recognition is a computer vision technique for identifying objects in images or videos. Object recognition is a key technology behind driverless cars, enabling them to recognize a stop sign or to distinguish a pedestrian from a lamppost. It is also useful in a variety of applications such as disease identification in bioimaging, industrial inspection, and robotic vision.&lt;/p&gt;
 
@@ -211,7 +175,7 @@ Neural Networks are algorithms using an artificial neurons. They compute output 
 
 &lt;h2 id=&quot;-summary-&quot;&gt;&lt;center&gt; Summary &lt;/center&gt;&lt;/h2&gt;
 
-&lt;p&gt;The neural network model is a powerfull tool and is best suited for tasks where traditional machine learning algorithms underperform, such as computer vision and speech recognition. In the post we discussed the core ideas behind the object recognition, yet there is a lot lef unsaid: neuron activation function, loss function, optimization method… Some of them I am going to discuss in upcoming post considering object detction for colision signaling. Stay tuned.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Folio 01: Clustering</title><link href="https://giacostantino.com/blog/folio-clustering" rel="alternate" type="text/html" title="Folio 01: Clustering" /><published>2022-02-28T00:00:00-06:00</published><updated>2022-02-28T00:00:00-06:00</updated><id>https://giacostantino.com/blog/folio1-clustering</id><content type="html" xml:base="https://giacostantino.com/blog/folio-clustering">&lt;!--
+&lt;p&gt;The neural network model is a powerfull tool and is best suited for tasks where traditional machine learning algorithms underperform, such as computer vision and speech recognition. In the post we discussed the core ideas behind the object recognition, yet there is a lot lef unsaid: neuron activation function, loss function, optimization method… Some of them I am going to discuss in upcoming post considering object detction for colision signaling. Stay tuned.&lt;/p&gt;</content><author><name>Giaco Stantino</name></author><category term="computer vision" /><category term="machine learning" /><summary type="html">Intro</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://giacostantino.com/images/ipynb/rtm_object_recognition.png" /><media:content medium="image" url="https://giacostantino.com/images/ipynb/rtm_object_recognition.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Folio 01: Clustering</title><link href="https://giacostantino.com/blog/folio-clustering" rel="alternate" type="text/html" title="Folio 01: Clustering" /><published>2022-02-28T00:00:00-06:00</published><updated>2022-02-28T00:00:00-06:00</updated><id>https://giacostantino.com/blog/folio1-clustering</id><content type="html" xml:base="https://giacostantino.com/blog/folio-clustering">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
