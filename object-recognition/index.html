@@ -1,5 +1,6 @@
 
 <hr />
+
 <p>title: “Intro to object recognition and convnets”
 description: “Part [1/3] of my Road to Masters story”
 layout: post
@@ -16,7 +17,7 @@ permalink: /blog/object-recognition</p>
 
 <hr />
 
-<h1 id="intro"><center>Intro</center></h1>
+<h2 id="intro"><center>Intro</center></h2>
 
 <p>Object recognition is a computer vision technique for identifying objects in images or videos. Object recognition is a key technology behind driverless cars, enabling them to recognize a stop sign or to distinguish a pedestrian from a lamppost. It is also useful in a variety of applications such as disease identification in bioimaging, industrial inspection, and robotic vision.</p>
 
@@ -24,7 +25,7 @@ permalink: /blog/object-recognition</p>
 
 <p>This blog post is a result of my deep interest in neural networks. It is also the first part of three epsiode series, which sums up my experiences with computer vision until my master’s thesis, which is the final part. All of the posts are discussing the core concepts and ideas behind the projects. However for this part I uploaded the notebook to <a href="#">my github repo</a>.</p>
 
-<h1 id="neural-networks">Neural Networks</h1>
+<h2 id="-neural-networks-"><center> Neural Networks </center></h2>
 <p>This is one of the prerequists for this blogpost. It would be best if you understand the concept - here is <a href="https://www.ibm.com/cloud/learn/neural-networks">a good article</a>.<br />
 tldr: <br />
 Neural Networks are algorithms using an artificial neurons. They compute output value based on inputs <em>(x1, x2, x3)</em> - to do that they learn input weights and then pass it to activation function.</p>
@@ -33,7 +34,7 @@ Neural Networks are algorithms using an artificial neurons. They compute output 
 
 <p>For indepth info check: <a href="http://neuralnetworksanddeeplearning.com/index.html">Michael Nielsen’s internet book</a></p>
 
-<h1 id="deep-neural-networks">Deep Neural Networks</h1>
+<h2 id="-deep-neural-networks-"><center> Deep Neural Networks </center></h2>
 <p>Neural Network that use multiple layers of artifical neurons, are called deep neural networks.</p>
 
 <center><img src="https://giacostantino.com/images/ipynb/convnet_deepnn.png" width="570" /></center>
@@ -46,7 +47,7 @@ Neural Networks are algorithms using an artificial neurons. They compute output 
 
 <p>The figure above shows the frame of the detected cat’s head. The deep neural network in the learning process will only acquire the face recognition insights at this image location - the corresponding weights will be modified - as shown on the right. In other words, the network will learn to recognize a cat in specific locations. In order to solve this problem, the architecture of convolutional networks was proposed.</p>
 
-<h1 id="convnets">ConvNets</h1>
+<h2 id="-convnets-"><center> ConvNets </center></h2>
 
 <p>These networks get their name from the mathematical convolution operation. The convolutional neural network consists of an input layer, convolutional layers and an output layer. On <a href="https://sgugger.github.io/convolution-in-depth.html">CNN</a>, hidden layers perform convolutions.</p>
 
@@ -68,7 +69,7 @@ Neural Networks are algorithms using an artificial neurons. They compute output 
 
 <p>Although Convolution Networks produce acceptable outputs there was one more evolution to be made (well, a few more in fact, but we will consider today this one).</p>
 
-<h1 id="resnets">ResNets</h1>
+<h2 id="-resnets-"><center> ResNets </center></h2>
 
 <p>One of the problems of  the neural network is that with each successive layer it becomes more difficult to propagate information from the early layers and the accuracy of the network results decreases - this is known as the <strong>degradation problem</strong>. As a solution to this problem, residual blocks, which are a modification of convolutional blocks, have been proposed</p>
 
@@ -76,7 +77,7 @@ Neural Networks are algorithms using an artificial neurons. They compute output 
 
 <p>Let F (x) be a function learned by the layers. Consider the output y = F (x) + x, for a block omitting connections. Here the term + x means a combination of the so-called “residual”. For y = F (x) + x, where the +x component carries the original value, the block only needs to learn the value changes, i.e. the residual Δx. In other words, this approach <strong>changes the ‘intuition’</strong> of training from simply recognizing features to learning the differences between them. Hence the name “Residual Learning”.</p>
 
-<h1 id="object-recognition">Object Recognition</h1>
+<h2 id="-object-recognition-"><center> Object Recognition </center></h2>
 
 <p>Object recognition is a computer vision technique used to identify objects in images or videos. Object recognition is a key result of deep learning and machine learning algorithms. When people look at a photo or watch a video, we can easily see people, objects, scenes, and visual details. The goal is to teach the computer to do what naturally comes to a person: gain a level of understanding of what the picture contains.</p>
 
@@ -88,7 +89,7 @@ Neural Networks are algorithms using an artificial neurons. They compute output 
 
 <p>Model’s performance in evaluated based on it’s accuracy score. In perfect world it would be so easy to assess if our experiments end with a satisifing result. Unfortunately, we don’t live on ideal planet. One of the problems of the neural networks that they might overfit during the training. In other words, they will learn by heart without understandind the essensce of the data. If put to the tests, they will score best on pictures their learned with, but perform miserably with data they see first time.</p>
 
-<h1 id="overfitting">Overfitting</h1>
+<h2 id="-overfitting-"><center> Overfitting </center></h2>
 <p>To prevent model from learing by heart (overfitting) we need to spot it happening first. The very basic tool for this is <em>learning curve</em>. There are ploted results of the model on training data and test (unseen) data by number of epochs (number of times model seen whole dataset).</p>
 
 <center><img src="https://giacostantino.com/images/ipynb/convnet_learning_curve.png" /></center>
@@ -104,9 +105,9 @@ Neural Networks are algorithms using an artificial neurons. They compute output 
 </ul>
 
 <blockquote>
-  <p>:note: There is a lot of diffrent techniques. I chose the ones that, in my opinion, suited the project best.</p>
+  <p>Note: There is a lot of diffrent techniques. I chose the ones that, in my opinion, suited the project best.</p>
 </blockquote>
 
-<h1 id="summary">Summary</h1>
+<h2 id="-summary-"><center> Summary </center></h2>
 
 <p>The neural network model is a powerfull tool and is best suited for tasks where traditional machine learning algorithms underperform, such as computer vision and speech recognition. In the post we discussed the core ideas behind the object recognition, yet there is a lot lef unsaid: neuron activation function, loss function, optimization method… Some of them I am going to discuss in upcoming post considering object detction for colision signaling. Stay tuned.</p>
