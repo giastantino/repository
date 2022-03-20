@@ -736,7 +736,7 @@ body.is-loading #intro:not(.hidden) + #header + #nav { -moz-transform: translate
 
 @media screen and (max-width: 980px) { #main > .posts > * { width: 50%; } #main > .posts > * { padding: 2.5rem; width: 50%; } }
 
-@media screen and (max-width: 736px) { #main > .posts > * { width: 100%; } #main > .posts > * { padding: 2rem; width: 100%; } #main > .posts > article:nth-child(2n - 1) { border-left-width: 2px; } #main > .posts > article:nth-child(-n + 2) { border-top-width: 2px; } #main > .posts > article:nth-child(n) { border-left-width: 0; } #main > .posts > article:nth-child(-n + 1) { border-top-width: 0; } #main > .posts > article .image { max-width: 18rem; margin-left: auto; margin-right: auto; } }
+@media screen and (max-width: 736px) { #main > .posts > * { width: 100%; } #main > .posts > * { padding: 2rem; width: 100%; } #main > .posts > article:nth-child(2n - 1) { border-left-width: 2px; } #main > .posts > article:nth-child(-n + 2) { border-top-width: 2px; } #main > .posts > article:nth-child(n) { border-left-width: 0; } #main > .posts > article:nth-child(-n + 1) { border-top-width: 0; } #main > .posts > article .image { max-width: 7rem; margin-left: auto; margin-right: auto; } }
 
 @media screen and (max-width: 736px) { #main > * { padding: 2rem 2rem 0.1rem 2rem ; } }
 
