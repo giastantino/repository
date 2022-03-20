@@ -13,6 +13,7 @@ categories: [computer vision, machine learning]
 hide: false
 search_exclude: true
 permalink: /blog/object-recognition
+
 ---
 
 # <center>Intro</center>
