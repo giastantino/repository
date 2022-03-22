@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="twitter:card" content="summary" /><title>Video Instance Segmentation - overview of my Master's Thesis | Giaco Stantino</title>
+<meta name="description" content="Part [3/3] of my Road to Masters story">
+
+<!-- SEO and meta information for twitter/whatsupp cards --><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Video Instance Segmentation - overview of my Master’s Thesis | Giaco Stantino</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Video Instance Segmentation - overview of my Master’s Thesis" />
+<meta name="author" content="Giaco Stantino" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Part [3/3] of my Road to Masters story" />
+<meta property="og:description" content="Part [3/3] of my Road to Masters story" />
+<link rel="canonical" href="https://giacostantino.com/blog/vis-masters" />
+<meta property="og:url" content="https://giacostantino.com/blog/vis-masters" />
+<meta property="og:site_name" content="Giaco Stantino" />
+<meta property="og:image" content="https://giacostantino.com/images/ipynb/visover_main.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Giaco Stantino"},"headline":"Video Instance Segmentation - overview of my Master’s Thesis","dateModified":"2022-03-19T00:00:00-05:00","description":"Part [3/3] of my Road to Masters story","datePublished":"2022-03-19T00:00:00-05:00","@type":"BlogPosting","image":"https://giacostantino.com/images/ipynb/visover_main.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://giacostantino.com/blog/vis-masters"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://giacostantino.com/images/logo.png"},"name":"Giaco Stantino"},"url":"https://giacostantino.com/blog/vis-masters","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- Feed --><link type="application/atom+xml" rel="alternate" href="https://giacostantino.com/feed.xml" title="Giaco Stantino" /><!-- CSS --><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://giacostantino.com/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="https://giacostantino.com/assets/css/noscript.css" /></noscript>
+<link rel="stylesheet" href="https://giacostantino.com/assets/stylesheets/main.css" />
+<link rel="stylesheet" href="https://giacostantino.com/assets/css/academicons.min.css"/>
+
+<!-- Analytics --><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','G-4XHWRRHQYR','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8QVC01BMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q8QVC01BMZ');
+</script>
+
+<!-- google search -->
+<meta name="google-site-verification" content="eo4A8Z3U5MisXvF1etpKMZu-ipYw7wVckqVlSnnFzMw" />
+
+<!-- Math -->
+
+
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+      <div id="wrapper" class="fade-in">
+
+        <!-- Header -->
+        <header id="header">
+          <a href="https://giacostantino.com/" class="logo">Giaco Stantino</a>
+        </header>
+
+        <!-- Nav -->
+          <nav id="nav">
+
+            <ul class="links">
+  <li class=""><a href="https://giacostantino.com/">Home</a></li>
+  <li class=" active "><a href="https://giacostantino.com/blog/">Blog</a></li>
+  <!-- <li class=""><a href="https://giacostantino.com/tags/">Tags</a></li> -->
+  <!-- <li class=""><a href="https://giacostantino.com/arts/">Arts</a></li> -->
+  <!-- <li class=""><a href="https://giacostantino.com/poetry/">Poetry</a></li> -->
+  <!-- <li class=""><a href="https://giacostantino.com/resume/">Resume</a></li> -->
+  <li class=""><a href="https://giacostantino.com/categories/">Categories</a></li>
+  <li class=""><a href="https://giacostantino.com/about/">About Me</a></li>
+
+</ul>
+
+<ul class="icons">
+  <li class=""><a href="https://giacostantino.com/search" class="icon fa-search"><span class="label">Search</span></a></li>
+  <li><a href="https://github.com/giastantino" class="icon fa-github" rel="nofollow"><span class="label">GitHub</span></a></li>
+  <!-- <li><a href="https://linkedin.com/" class="icon fa-linkedin" rel="nofollow"><span class="label">LinkedIn</span></a></li>-->
+  <!-- <li><a href="https://twitter.com/" class="icon fa-twitter" rel="nofollow"><span class="label">Twitter</span></a></li> -->
+<!--   <li>
+    
+      <a href="/feed.xml" title="Atom Feed" class="icon fa-rss">
+        <span class="label">Subscribe</span>
+      </a>
+    
+  </li> -->
+</ul>
+
+
+          </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+          <!-- Post -->
+          <section class="post">
+            
+            <p><article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Video Instance Segmentation - overview of my Master&#39;s Thesis</h1><p class="page-description">Part [3/3] of my Road to Masters story</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-19T00:00:00-05:00" itemprop="datePublished">
+        Mar 19, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Giaco Stantino</span></span>• 
+
+
+
+<span class="read-time" title="Estimated read time">
+
+  11 min read
+
+</span>
+
+    </p>
+
+    
+      <p class="category-tags"><i class="fa fa-folder category-tags-icon"></i></i>
+      
+        <a class="category-tags-link" href="/categories/#computer vision">computer vision</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#machine learning">machine learning</a>
+        
+      
+      </p>
+    
+
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#-Intro-"> Intro  </a></li>
+<li class="toc-entry toc-h1"><a href="#-Prelude-"> Prelude  </a></li>
+<li class="toc-entry toc-h1"><a href="#-The-problem-of-segmentation-"> The problem of segmentation  </a></li>
+<li class="toc-entry toc-h1"><a href="#-Chosen-method-"> Chosen method  </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#R-CNN-Family">R-CNN Family </a></li>
+<li class="toc-entry toc-h2"><a href="#Concepts-behind-MaskRCNN">Concepts behind MaskRCNN </a></li>
+<li class="toc-entry toc-h2"><a href="#MaskTrackRCNN">MaskTrackRCNN </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#-Modifications-"> Modifications  </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Temporal-RoI-Align">Temporal RoI Align </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#-Experiments-"> Experiments  </a></li>
+<li class="toc-entry toc-h1"><a href="#-Sample-frames-"> Sample frames  </a></li>
+<li class="toc-entry toc-h1"><a href="#-Summary-"> Summary  </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-19-video-instance-segmentation.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-Intro-">
+<a class="anchor" href="#-Intro-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Intro </center>
+<a class="anchor-link" href="#-Intro-"> </a>
+</h1>
+<p>In last two notebooks we builded some basic ideas behind computer vision. Today we are going to look at state of the  art algorithm. It was proposed to solve one of the hardest task (at least for now) - Video Istansce Segmentation.</p>
+<center><img src="Obraz1.gif" alt="" width="400" height="600"></center>
+<p>This post concludes the blog series Road to Masters. If you would like to check how method I tested performs on your video check out this <a href="https://colab.research.google.com/drive/1NiHX13_zBII-ZCp1FxjAbqPHACU2GNH2?usp=sharing">Google Colab</a>.</p>
+<h1 id="-Prelude-">
+<a class="anchor" href="#-Prelude-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Prelude </center>
+<a class="anchor-link" href="#-Prelude-"> </a>
+</h1>
+<p>The motivation for writing this master's thesis was the topic of safety of people at work in a robotic environment, and in particular increasing its level by better quality of analysis of the image from the recordings, which may come from a robot's camera. Hence, the aim of the work was to test the effectiveness of the method for video instance segmentation MaskTrackRCNN, as well as to modify the architecture in order to improve the obtained results. The YouTube-VIS 2021 database was used to perform this task.</p>
+<p>Due to the introduced modifications, the obtained results were analyzed and compared with the original version of the architecture. Better quality of the results generated by the network was observed, in the best case the average precision was increased by 21% (6.4 percentage points).</p>
+<h1 id="-The-problem-of-segmentation-">
+<a class="anchor" href="#-The-problem-of-segmentation-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> The problem of segmentation </center>
+<a class="anchor-link" href="#-The-problem-of-segmentation-"> </a>
+</h1>
+<p>NVidia DRIVE's results on image segmentation at work for autonomous driving and the use of neural networks for medical research are inspiring. In figure below: on the left side - different classifications and surfaces were distinguished; on the right - an MRI scan is visible with the marked areas, where changes in the tissue were detected. The subject of the segmentation analysis is important for many fields of science.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_segmentations1.png" width="800"></center>
+<p>Segmentation is a problem that the process of detecting objects in an image should solve before trying to recognize individual instances of objects. In fact, this is a key step towards understanding the image. <strong>Semantic segmentation</strong> associates each pixel of an image with a class, eg human, bird, pavement, vehicle, etc. It treats all objects of the same class as one. Such image analysis is often used to understand the scenery overall. Whereas <strong>instance segmentation</strong> treats objects of the same class as separate and single. It is used to distinguish objects of the same class and, for example, to track their position in a video recording. The figure below shows the results of the image analysis in terms of the segmentation discussed, in the middle image the chairs are assigned to the same object - semantic segmentation, and on the right to separate ones - instance segmentation.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_segmentations2.png" width="800"></center>
+<p>At this point, it is worth noting that object segmentation in a single image is different from <strong>video object segmentation</strong>. The former refers to the division of the image into regions that are homogeneous in terms of a certain feature. Sometimes it produces very different results for two similar images. The latter requires that the segmentation for a given frame refers to the segmentation of the previous frame and on this basis it is necessary to determine that the extracted segments belong to the same objects. In this process, the consistency between the segmentations of consecutive frames is extremely important, e.g. in terms of the color, texture and depth. <strong>Deep neural networks</strong> exhibit the ability to surpass traditional approaches in computer vision tasks such as detection, recognition, and segmentation</p>
+<h1 id="-Chosen-method-">
+<a class="anchor" href="#-Chosen-method-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Chosen method </center>
+<a class="anchor-link" href="#-Chosen-method-"> </a>
+</h1>
+<p>MaskTrackRCNN was built on the framework of the object segmentation method in MaskRCNN, which in turn is based on the FasterRCNN method. Tracking head was added to MaskRCNN to better understand the temporal data.  All of the above are part of regional based convoluytional networks (RCNN).</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_segmentations2.png" width="800"></center>
+<h2 id="R-CNN-Family">
+<a class="anchor" href="#R-CNN-Family" aria-hidden="true"><span class="octicon octicon-link"></span></a>R-CNN Family<a class="anchor-link" href="#R-CNN-Family"> </a>
+</h2>
+<p>Object detection is an integral part of computer vision. The difference between object detection algorithms and classification algorithms is that in detection algorithms we try to draw a bounding box around one (or more) object of interest to locate it in the image. The main reason you cannot solve this problem by building a standard convolutional network is that the number of occurrences of objects of interest is not constant. Therefore, algorithms such as R-CNN have been developed to find regions of interest and classify them quickly.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_rcnn.png" width="800"></center>
+<p>The methods based on the region proposals work according to the scheme shown in the figure above. First, the proposed areas of interest are generated, feature maps for them are determined and an attempt is made to classify them. How areas are generated depends on the specific method.</p>
+<blockquote>
+<p>In this blog post we only consider parts of the MaskRCNN that are crucial to understand idea behind MaskTrackRCNN method, if you want to know more this are hepful links:<a href="https://towardsdatascience.com/faster-r-cnn-for-object-detection-a-technical-summary-474c5b857b46">FasterRCNN</a> and <a href="https://engineering.matterport.com/splash-of-color-instance-segmentation-with-mask-r-cnn-and-tensorflow-7c761e238b46">MaskRCNN</a></p>
+<h2 id="Concepts-behind-MaskRCNN">
+<a class="anchor" href="#Concepts-behind-MaskRCNN" aria-hidden="true"><span class="octicon octicon-link"></span></a>Concepts behind MaskRCNN<a class="anchor-link" href="#Concepts-behind-MaskRCNN"> </a>
+</h2>
+</blockquote>
+<p>MaskRCNN is a deep neural network, the task of which is to segment object instances in computer vision, i.e. to distinguish between different objects of the same class in a photo. It is a two-step method built on the FasterRCNN architecture. First, propositions of regions (in which the object may be located) are generated based on the input image. Then it predicts the object's class, prepares bounding boxes and generates a mask at the level of individual pixels.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_mask_example.png" width="700"></center>
+<p>First step: the region proposal network is used to generate multiple ROIs, for this purpose 9 anchor boxes are usually used. In the second stage, thanks to the informations from the feature maps and RoI Align function, the object class and frame are predicted in parallel, and binary masks are generated in parallel for each area of ​​interest using convolutional layers.</p>
+<h2 id="MaskTrackRCNN">
+<a class="anchor" href="#MaskTrackRCNN" aria-hidden="true"><span class="octicon octicon-link"></span></a>MaskTrackRCNN<a class="anchor-link" href="#MaskTrackRCNN"> </a>
+</h2>
+<p>This architecture draws heavily on the network built to MaskRCNN. It extends the original idea of ​​the three heads of the model, i.e. object classification, regression of boxes and generation of masks with an additional fourth element, which is used to track the object instance in the recording frames.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_masktrack_schemat.png" width="800"></center>
+<p>The proposed tracking branch has two fully connected layers of artificial neurons that transform the feature maps obtained by RoIAlign into a vector form, thereby creating a feature vector (instead of a matrix map). Since characteristics from previously identified instances have already been computed beforehand, the architecture uses external memory to store them. This memory is dynamically updated when a candidate frame is assigned to an already existing instance in memory or expanded when an object has been evaluated as new to a given video sequence.</p>
+<p>In summary, an additional tracking branch compares the information in the current frame with that in the rest of the video sequences stored in memory. On this basis, it determines whether the object is an instance of the previously identified object, if so, it is assigned the same class and identifier.</p>
+<h1 id="-Modifications-">
+<a class="anchor" href="#-Modifications-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Modifications </center>
+<a class="anchor-link" href="#-Modifications-"> </a>
+</h1>
+<p>W pierwszej implementacji ciało architektury MaskTrackRCNN stanowiła sieć rezydualna ResNet50.  Ciałem architektury konwolucyjnej nazywa się sieci generujące mapy cech. Z tych map korzystają głowy metody w celu wygenerowania wyników, np. głowa klasyfikująca czy głowa śledząca. Zatem im lepsze mapy cech tym lepsze wyniki. Na rzecz poprawy działania sieci MaskTrackRCNN w części eksperymentalnej proponuje się dwie modyfikacje oryginalnej architektury:</p>
+<ul>
+<li>zmiana ciała modelu MaskRCNN na głębszy niż w oryginalnej implementacji, np. ResNet101 lub ResNeXt101</li>
+<li>zastąpienie RoI Align przez nowszy odpowiednik uwzględniający wskazówki temporalne w nagraniu .<blockquote>
+<p>In this blog post we are going to focus on the second modification, if you want more about diffrences between ResNet and ResNeXt chechout this <a href="https://medium.com/dataseries/enhancing-resnet-to-resnext-for-image-classification-3449f62a774c">post</a></p>
+<h2 id="Temporal-RoI-Align">
+<a class="anchor" href="#Temporal-RoI-Align" aria-hidden="true"><span class="octicon octicon-link"></span></a>Temporal RoI Align<a class="anchor-link" href="#Temporal-RoI-Align"> </a>
+</h2>
+</blockquote>
+</li>
+</ul>
+<p>RoIAlign is the operation of extracting a small feature map from each area of ​​interest where the object is searched for. Properly matches the extracted features with the input data. To avoid quantization of the borders or RoI intervals, RoIAlign uses bilinear interpolation to compute the exact values ​​of the input data features at four regularly sampled locations in each RoI interval, as shown in the figure below. Then the result is aggregated (using a maximum or average value). This solution is less expensive than the previous ones, such as RoIPool, and also extracts feature maps for images well.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_roialign.png" width="200"></center>
+<p>W sierpniu 2021 to rozwiązanie doczekało się znaczącej poprawki, która uwzględnia temporalną naturę nagrań. Dlatego osiąga lepsze wyniki od RoIAlign, która została stworzona z myślą analizy pojedynczych obrazów, a nie ich sekwencji.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_temporalroialign.png" width="700"></center>
+<p>The illustration above shows two patterns of operation:</p>
+<ul>
+<li>RoI Align, which generates a feature map for an area of ​​interest as described at the beginning of this section,</li>
+<li>The Temporal ROI Align function first extracts RoI features from support frames. The temporal attention algorithm is then used to aggregate the RoI traits for the current frame and the most similar RoI traits in the other frames. Ultimately, the final feature map is generated.</li>
+</ul>
+<p>W części eksperymentalnej porównywane są wyniki uzyskane przy wykorzystaniu obu algorytmów.</p>
+<h1 id="-Experiments-">
+<a class="anchor" href="#-Experiments-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Experiments </center>
+<a class="anchor-link" href="#-Experiments-"> </a>
+</h1>
+<p>The first experiments concerned the modification of the body of architecture. First, an attempt was made to reproduce the results of an original research paper using the ResNet50 network as the body of architecture. Then the MaskTrackRCNN method was trained in a modified form.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_reuslts1" width="700"></center>
+<p>An attempt to reproduce the results of the work presenting MaskTrackRCNN resulted in an AP result lower by 0.6 than the original, which may be due to the lower number of training epochs. The best results were achieved by the architecture version using the ResNeXt101 network (cardinality 64) - this is an AP improvement by 1.9 compared to ResNet101. ResNeXt101 with a cardinality of 32 notes an improvement of 1.4. This is probably due to the added dimension of the network in both cases, which allows the generation of better quality feature maps.</p>
+<hr>
+<p>The second group of studies was the use of the Temporal RoI Align function. In the thesis, the results were obtained for the Resnet101 and ResNeXt101 architecture bodies with a cardinality of 64.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_reuslts2.png" width="700"></center>
+<p>It can be seen that the revised version of RoI Align using temporal features leads to an improvement in the results on all three metrics compared to the original version of the MaskRCNN architecture. For ResNet101 note improves by 2.9 AP, and for ResNeXt101 with a cardinality of 64 by 2.6 AP. Such results support the thesis that extracting features from the entire video, not just one frame for generating proposals, facilitates the classification of regions of interest.</p>
+<hr>
+<h1 id="-Sample-frames-">
+<a class="anchor" href="#-Sample-frames-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Sample frames </center>
+<a class="anchor-link" href="#-Sample-frames-"> </a>
+</h1>
+<p>The masks placed on exemplary frames for fragments of recordings are presented below. It shows a man walking with a badminton racket and a skateboard.</p>
+<center><img src="https://giacostantino.com/images/ipynb/vis_sampleframes1.png" width="700"></center>
+<p>The empirical results that were obtained and shown in the above frames present many problems related to the task of segmenting object instances in video. At the same time, it should be noted that this is a difficult task for which one of the best methods, which is MastTrackRCNN, achieves the results of about 30% AP.</p>
+<hr>
+<center><img src="https://giacostantino.com/images/ipynb/vis_sampleframes2.png" width="700"></center>
+<p>First, the quality of the mask is poor. In the picture above, a close-up of the man's mask from the first video is shown. There are visible inaccuracies in the binary pixel allocation. Especially to the right of the head, many background pixels have been identified as part of an object instance. On the other hand, in this example, the model correctly predicted the class with 100% certainty.</p>
+<hr>
+<center><img src="https://giacostantino.com/images/ipynb/vis_sampleframes3.png" width="700"></center>
+<p>The second problem that was observed in the results of the master's thesis is the incorrect recognition of objects. Above figure shows a close-up of the dog for two exemplary frames. The previous frame shows low classification certainty - about 3% for the tiger class, which is an incorrect classification. The subsequent frame shows that the object is correctly assigned to a real class, but to a different instance. The reason for such a result may be the insufficient influence of temporal information on the functioning of the investigator's head.</p>
+<h1 id="-Summary-">
+<a class="anchor" href="#-Summary-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Summary </center>
+<a class="anchor-link" href="#-Summary-"> </a>
+</h1>
+<p>My master's thesis discussed the problem of Video Instance Segmantation. MaskTrackRCNN was chosen as the benchmark for my experiments. I tried to improve the predictions made my original model. To achieve this goal, I proposed two modifications:  changing the backbone to a deeper architecture and using Temporal RoI Align in place of a previous function that didn't use temporal insight by default. My modified model outscored the original architucture, but the quality of produced masks was not satisfactory.</p>
+<p>This sums up the blog post and the series. In the end, I am proud of the work I've done. It was without a doubt one of the most developing projects in my life.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/blog/vis-masters" hidden></a>
+</article>
+
+</p>
+          </section>
+
+          <!-- Footer -->
+            <footer>
+              <ul class="actions">
+                <li><a href="https://giacostantino.com/" class="button">Home</a></li>
+                <li><a href="https://giacostantino.com/blog/" class="button">Blog</a></li>
+              </ul>
+            </footer>
+          </div>
+
+        <!-- Footer -->
+        <!-- Copyright -->
+<!-- <style>
+  li {
+     text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px white;
+  }
+</style> -->
+
+<div id="copyright">
+  <ul>
+    <li style = "text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px white;">&copy; Giaco Stantino
+      <a href="https://github.com/giastantino" class="icon fa-github" rel="nofollow"><span class="label">GitHub</span></a>
+      <!-- <a href="https://twitter.com/" class="icon fa-twitter" rel="nofollow"><span class="label">Twitter</span></a> -->
+<!--       <a href="https://orcid.org/" class="ai ai-orcid" rel="nofollow"><span class="label">ORCID</span></a> | -->
+<!--       <a href="https://scholar.google.es/citations?user=" class="ai ai-google-scholar" rel="nofollow"><span class="label">Google Scholar</span></a> | -->
+<!--       
+      <a href="/feed.xml" title="Atom Feed" class="icon fa-rss" rel="nofollow">
+        <span class="label">Subscribe</span>
+      </a>
+       -->
+    </li>
+    <li style = "text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px white;">Powered by <a href="https://github.com/Outsiders17711/">Oluwaleke Umar Yusuf</a>  &
+      <a href="https://fastpages.fast.ai/">fastpages</a> &
+      <a href="https://github.com/OriolAbril">Oriol Abril Pla</a></li>
+    <li style = "text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px white;">Design by <a href="https://html5up.net" rel="nofollow">HTML5 UP</a> &
+      <a href="https://github.com/mmistakes/jekyll-theme-basically-basic">Basically Basic</a> &
+      <a href="https://jekyllup.com/">JekyllUp</a> </li>
+    <!-- <li><a href="https://github.com/Outsiders17711/Mein.Platz">Mein.Platz</a> /
+      <a href="https://github.com/Outsiders17711/Mein.Platz/actions">@actions</a> </li> -->
+  </ul>
+</div>
+
+
+      </div>
+
+    <!-- Scripts -->
+    <!-- DYN -->
+<script src="https://giacostantino.com/assets/js/jquery.min.js"></script>
+<script src="https://giacostantino.com/assets/js/jquery.scrollex.min.js"></script>
+<script src="https://giacostantino.com/assets/js/jquery.scrolly.min.js"></script>
+<script src="https://giacostantino.com/assets/js/skel.min.js"></script>
+<script src="https://giacostantino.com/assets/js/util.js"></script>
+<script src="https://giacostantino.com/assets/js/main.js"></script>
+
+
+  </body>
+</html>
