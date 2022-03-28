@@ -114,7 +114,7 @@
 
 <span class="read-time" title="Estimated read time">
 
-  12 min read
+  11 min read
 
 </span>
 
@@ -187,14 +187,24 @@
 <p>I think this the perfect oportunity! In the third part of ML notebooks for Folio series we are going to <strong>build MLP classifier</strong> that is very focused on explaining accuracy improving and regularization techniques. In this notebook I try to explain some core neural network features and training with Keras library.</p>
 <hr>
 <p><strong>Task:</strong> Classify existing clients into marketing segments based on bank statistics.</p>
-<p>The notebook consists of:</p>
-<ol>
-<li>Data Transformation</li>
-<li>Activation Function</li>
-<li>Number of layers</li>
-<li>Number of epoches</li>
-<li>Regularization</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">card master</th>
+<th style="text-align:center">bill payer</th>
+<th style="text-align:center">golden fish</th>
+<th style="text-align:center">barrel scraper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/card_master.png?raw=true" width="200" height="100"></td>
+<td style="text-align:center"><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/bill_payer.png?raw=true" width="200" height="100"></td>
+<td style="text-align:center"><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/golden_fish.png?raw=true" width="200" height="100"></td>
+<td style="text-align:center"><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/barrel_scraper.png?raw=true" width="200" height="100"></td>
+</tr>
+</tbody>
+</table>
 <hr>
 
 </div>
@@ -754,7 +764,8 @@ Softmax model 	accuracy: 96.45 	 validation accuracy: 96.20
 <a class="anchor" href="#-Number-of-layers-and-neurons-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Number of layers and neurons </center>
 <a class="anchor-link" href="#-Number-of-layers-and-neurons-"> </a>
 </h1>
-<p>MLP stands for multi layer perceptron, but so far we were using model with input, hidden and  output layer. Let's try adding hidden layers and increasing number of neurons.</p>
+<center><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/mlp_clf_layers.png?raw=true" width="600"></center>
+<p>MLP stands for multi layer perceptron and so far we were using model with input, hidden and output layer. Let's try adding hidden layers and increasing number of neurons.</p>
 
 </div>
 </div>
@@ -1081,7 +1092,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <a class="anchor" href="#Early-stopping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Early stopping<a class="anchor-link" href="#Early-stopping"> </a>
 </h2>
 <p>Early stopping is a kind of cross-validation strategy where we keep one part of the training set as the validation set. When we see that the performance on the validation set is getting worse, we immediately stop the training on the model. This is known as early stopping.</p>
-<center><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/mlp_clf_earlystopping.png.png?raw=true"></center>
+<center><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/mlp_clf_earlystopping.png?raw=true" width="500"></center>
 </div>
 </div>
 </div>
