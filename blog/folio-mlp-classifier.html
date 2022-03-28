@@ -114,7 +114,7 @@
 
 <span class="read-time" title="Estimated read time">
 
-  11 min read
+  12 min read
 
 </span>
 
@@ -149,15 +149,15 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#Intro">Intro </a></li>
+<li class="toc-entry toc-h1"><a href="#-Intro-"> Intro  </a></li>
 <li class="toc-entry toc-h1"><a href="#Data-transformation">Data transformation </a></li>
 <li class="toc-entry toc-h1"><a href="#-Baseline-model-"> Baseline model  </a></li>
 <li class="toc-entry toc-h1"><a href="#-Activation-Function-"> Activation Function  </a></li>
 <li class="toc-entry toc-h1"><a href="#-Number-of-layers-and-neurons-"> Number of layers and neurons  </a></li>
-<li class="toc-entry toc-h1"><a href="#-Epoches-and-Batches-"> Epoches and Batches  </a>
+<li class="toc-entry toc-h1"><a href="#-Epochs-and-Batches-"> Epochs and Batches  </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Batch-Size">Batch Size </a></li>
-<li class="toc-entry toc-h2"><a href="#Overfitting-vs-number-of-epoches">Overfitting vs number of epoches </a></li>
+<li class="toc-entry toc-h2"><a href="#Overfitting-vs-number-of-epochs">Overfitting vs number of epochs </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#Regularization">Regularization </a>
@@ -180,13 +180,15 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Intro">
-<a class="anchor" href="#Intro" aria-hidden="true"><span class="octicon octicon-link"></span></a>Intro<a class="anchor-link" href="#Intro"> </a>
+<h1 id="-Intro-">
+<a class="anchor" href="#-Intro-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Intro </center>
+<a class="anchor-link" href="#-Intro-"> </a>
 </h1>
 <p>I would like to try something new. I want to build something more <em>explainatory</em> and <em>exploraroty</em>... to use my experience and knowledge gained while working on computer vision for my master's thesis.</p>
 <p>I think this the perfect oportunity! In the third part of ML notebooks for Folio series we are going to <strong>build MLP classifier</strong> that is very focused on explaining accuracy improving and regularization techniques. In this notebook I try to explain some core neural network features and training with Keras library.</p>
 <hr>
 <p><strong>Task:</strong> Classify existing clients into marketing segments based on bank statistics.</p>
+<p>There are four client segments in the data. If you want to know more, check out <a href="https://giacostantino.com/blog/folio-clustering">the clustering post</a>, where the process of creating the segments is described.</p>
 <table>
 <thead>
 <tr>
@@ -317,7 +319,8 @@
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="c1"># read demographic data</span>
+<div class=" highlight hl-python"><pre><span></span><span class="c1">#hide-output</span>
+<span class="c1"># read demographic data</span>
 <span class="n">demo_df</span> <span class="o">=</span> <span class="n">getDataRepo</span><span class="p">(</span><span class="s1">'statistics'</span><span class="p">)</span>
 
 <span class="c1"># read segments data</span>
@@ -335,21 +338,6 @@
 </div>
 
     </details>
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>statistics data has been read
-segments data has been read
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -869,11 +857,11 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="-Epoches-and-Batches-">
-<a class="anchor" href="#-Epoches-and-Batches-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Epoches and Batches </center>
-<a class="anchor-link" href="#-Epoches-and-Batches-"> </a>
+<h1 id="-Epochs-and-Batches-">
+<a class="anchor" href="#-Epochs-and-Batches-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Epochs and Batches </center>
+<a class="anchor-link" href="#-Epochs-and-Batches-"> </a>
 </h1>
-<p>We can increase model's performance with more training epoches - number of times MLP has seen traning data. Moreover, we can also manipulate number of objects model sees each iteration in the epoch - batches.</p>
+<p>We can increase model performance with more training epochs - number of times MLP has seen traning data. Moreover, we can also manipulate number of objects model sees each iteration in the epoch - batches.</p>
 
 </div>
 </div>
@@ -972,10 +960,10 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Overfitting-vs-number-of-epoches">
-<a class="anchor" href="#Overfitting-vs-number-of-epoches" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overfitting vs number of epoches<a class="anchor-link" href="#Overfitting-vs-number-of-epoches"> </a>
+<h2 id="Overfitting-vs-number-of-epochs">
+<a class="anchor" href="#Overfitting-vs-number-of-epochs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overfitting vs number of epochs<a class="anchor-link" href="#Overfitting-vs-number-of-epochs"> </a>
 </h2>
-<p>Having chosen the architecture and batch size. we shall check how our model behaves in terms of loss (cost function). How many epoches improve model predictions and if the overfitting occurs.</p>
+<p>Having chosen the architecture and batch size. we shall check how our model behaves in terms of loss (cost function). How many epochs improve model predictions and if the overfitting occurs.</p>
 
 </div>
 </div>
@@ -1068,7 +1056,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <h1 id="Regularization">
 <a class="anchor" href="#Regularization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Regularization<a class="anchor-link" href="#Regularization"> </a>
 </h1>
-<p>Having read this notebook we could relize how complex neural networks are. This makes them more prone to overfitting. Regularization is a technique which makes slight modifications to the learning algorithm such that the model generalizes better. This in turn improves the model's performance on the unseen data as well.</p>
+<p>Having read this notebook we could relize how complex neural networks are. This makes them more prone to overfitting. Regularization is a technique which makes slight modifications to the learning algorithm such that the model generalizes better. This in turn improves the model performance on the unseen data as well.</p>
 
 </div>
 </div>
@@ -1194,7 +1182,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that the early stopping strategy worked and stoped training. The best model for run epoches, and thus our final model, has the highest accuracy of all neutwork we experimented with before.</p>
+<p>We can see that the early stopping strategy worked and stoped training. The best model for completed epochs, and thus our final model, has the highest accuracy of all neural networks in this notebook.</p>
 <p>Let's plot confusion matrix of the predictions made by the final MLP.</p>
 
 </div>
