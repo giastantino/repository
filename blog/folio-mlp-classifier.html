@@ -184,8 +184,8 @@
 <a class="anchor" href="#-Intro-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Intro </center>
 <a class="anchor-link" href="#-Intro-"> </a>
 </h1>
-<p>I would like to try something new. I want to build something more <em>explainatory</em> and <em>exploraroty</em>... to use my experience and knowledge gained while working on computer vision for my master's thesis.</p>
-<p>I think this the perfect oportunity! In the third part of ML notebooks for Folio series we are going to <strong>build MLP classifier</strong> that is very focused on explaining accuracy improving and regularization techniques. In this notebook I try to explain some core neural network features and training with Keras library.</p>
+<p>I would like to try something new. I want to build something more <em>explainatory</em> and <em>exploratory</em>... to use my experience and knowledge gained while working on computer vision for my master's thesis.</p>
+<p>I think this is the perfect oportunity! In the third part of the ML notebooks for the Folio series, we will build the MLP classifier with special focus on explaining techniques to improve accuracy and regularization. In this notebook I'll try to explain some core neural network features and training with Keras library.</p>
 <hr>
 <p><strong>Task:</strong> Classify existing clients into marketing segments based on bank statistics.</p>
 <p>There are four client segments in the data. If you want to know more, check out <a href="https://giacostantino.com/blog/folio-clustering">the clustering post</a>, where the process of creating the segments is described.</p>
@@ -347,7 +347,7 @@
 <h1 id="Data-transformation">
 <a class="anchor" href="#Data-transformation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transformation<a class="anchor-link" href="#Data-transformation"> </a>
 </h1>
-<p>We are going to use power transform like in clustering notebook.</p>
+<p>We are going to use power transform as in clustering notebook.</p>
 <p>Let's check if anything is missing in imported data.</p>
 
 </div>
@@ -630,7 +630,7 @@ _________________________________________________________________
 <a class="anchor-link" href="#-Activation-Function-"> </a>
 </h1>
 <p>The activation function is performed on the sum of all inputs, for the classic perceptron it was a unipolar function, which output was a binary function. However, in modern neural networks, and thus MLP as well, a different approach is commonly used, such as the ReLU or Sigmoid function.</p>
-<center><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/mlp_clf_neuron.png?raw=true" width="400"></center>
+<center><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/mlp_clf_neuron.png?raw=true" width="500"></center>
 <hr>
 
 </div>
@@ -752,7 +752,7 @@ Softmax model 	accuracy: 96.45 	 validation accuracy: 96.20
 <a class="anchor" href="#-Number-of-layers-and-neurons-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Number of layers and neurons </center>
 <a class="anchor-link" href="#-Number-of-layers-and-neurons-"> </a>
 </h1>
-<center><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/mlp_clf_layers.png?raw=true" width="600"></center>
+<center><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/mlp_clf_layers.png?raw=true" width="500"></center>
 <p>MLP stands for multi layer perceptron and so far we were using model with input, hidden and output layer. Let's try adding hidden layers and increasing number of neurons.</p>
 
 </div>
@@ -848,7 +848,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that increasing number of layers and neurons has a positvie impact on training accuracy, however it is not that obviuos for validation subset. We can see that models bigger than <code>[50, 50]</code> hidden layers do better in training but not in validation - this suggests that bigger models are overfitting. In other words, bigger models are capable of learning traning data by heart, which is not desirable for test data.</p>
+<p>We can see that increasing number of layers and neurons has a positive impact on training accuracy, however it is not that obvious for validation subset. We can see that models bigger than <code>[50, 50]</code> hidden layers do better in training but not in validation - this suggests that bigger models are overfitting. In other words, bigger models are capable of learning traning data by heart, which is not desirable for test data.</p>
 <p>Let's inspect further the best performing model: <code>[input, 50, 50, output]</code></p>
 
 </div>
@@ -861,7 +861,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <a class="anchor" href="#-Epochs-and-Batches-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Epochs and Batches </center>
 <a class="anchor-link" href="#-Epochs-and-Batches-"> </a>
 </h1>
-<p>We can increase model performance with more training epochs - number of times MLP has seen traning data. Moreover, we can also manipulate number of objects model sees each iteration in the epoch - batches.</p>
+<p>We can increase model performance with more training epochs - number of times MLP has seen traning data. Moreover, we can also manipulate number of data points model sees in each iteration of the epoch - so called batches of data.</p>
 
 </div>
 </div>
@@ -1044,7 +1044,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the above graphs, there are plotted model scores for accuracy on the left and for the value of loss function on the rigth. We can see that model doesn't improve in term's of accuracy after ca. 60 epochs. On the other hand it starts to overfit the data after ca. 40 epochs - the loss function for training and validation spreads out in different directions.</p>
+<p>In the above graphs, there are plotted model scores for accuracy on the left and for the value of loss function on the right. We can see that model doesn't improve in term's of accuracy after ca. 60 epochs. On the other hand it starts to overfit the data after ca. 40 epochs - the loss function for training and validation spreads out in different directions.</p>
 <p>In order to prevent model from overfitting we will use some regularization techniques.</p>
 
 </div>
@@ -1069,7 +1069,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 </h2>
 <p>This is one of the most interesting types of regularization techniques. It also produces very good results and is consequently the most frequently used regularization technique in the field of deep learning.</p>
 <p>So what does dropout do? At every iteration, it randomly selects some nodes and removes them along with all of their incoming and outgoing connections as shown below.</p>
-<center><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/mlp_clf_dropout.png?raw=true" width="400"></center>
+<center><img src="https://github.com/giastantino/repository/blob/main/images/ipynb/mlp_clf_dropout.png?raw=true" width="300"></center>
 </div>
 </div>
 </div>
@@ -1091,7 +1091,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <a class="anchor" href="#-Summary-" aria-hidden="true"><span class="octicon octicon-link"></span></a><center> Summary </center>
 <a class="anchor-link" href="#-Summary-"> </a>
 </h1>
-<p>Let's sum up everythin in final code cell. Firstly, we define the <code>get_model</code> function with hidden layer and drop rate. Then, we create callback objects which represent early stopping and saving the checkpoint model - currently the best model based on test accuracy.</p>
+<p>Let's sum up everything in final code cell. Firstly, we define the <code>get_model</code> function with hidden layer and drop rate. Then, we create callback objects which represent early stopping and saving the checkpoint model - currently the best model based on test accuracy.</p>
 
 </div>
 </div>
@@ -1182,7 +1182,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that the early stopping strategy worked and stoped training. The best model for completed epochs, and thus our final model, has the highest accuracy of all neural networks in this notebook.</p>
+<p>We can see that the early stopping strategy worked and stopped training. The best model for completed epochs, and thus our final model, has the highest accuracy of all neural networks in this notebook.</p>
 <p>Let's plot confusion matrix of the predictions made by the final MLP.</p>
 
 </div>
@@ -1250,7 +1250,7 @@ hidden layers: [100, 50, 100]  	accuracy: 99.22 	 validation accuracy: 97.64
 <h1 id="Final-thoughts">
 <a class="anchor" href="#Final-thoughts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final thoughts<a class="anchor-link" href="#Final-thoughts"> </a>
 </h1>
-<p>The goal was to create the MLP classifier. To complete the task we used Keras. We created the model that does very well in training data and thanks to regularization techniques it generalizes and predicts with hich precision and accuracy on unseen data.</p>
+<p>The goal was to create the MLP classifier. To complete the task we used Keras. We have created a model that is very good at learning data, and thanks to regularization techniques, it generalizes and predicts with hich precision and accuracy on unseen data.</p>
 
 </div>
 </div>
